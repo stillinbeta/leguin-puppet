@@ -10,7 +10,7 @@ class nginx {
 
     file { "/etc/nginx/error":
         ensure => directory,
-        source => "puppet://modules/nginx/error",
+        source => "puppet:///modules/nginx/error",
         recurse => true,
         require => Package['nginx'],
     }
@@ -20,7 +20,7 @@ class nginx {
         provider => upstart,
         require => [ 
             File["/etc/init/nginx.conf"],
-            Package["Nginx"],
+            Package["nginx"],
         ]
     }
 
