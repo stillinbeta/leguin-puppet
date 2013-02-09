@@ -18,8 +18,10 @@ class nginx {
     service { nginx:
         ensure => running,
         provider => upstart,
-        require => File["/etc/init/nginx.conf"],
-        require => Package["Nginx"],
+        require => [ 
+            File["/etc/init/nginx.conf"],
+            Package["Nginx"],
+        ]
     }
 
 }
