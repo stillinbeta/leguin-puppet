@@ -1,0 +1,9 @@
+#!/bin/bash
+
+git --work-tree='<%= working_path %>' \
+    --git-dir='<%= bare_path %>' \
+    checkout -f HEAD 
+
+<% if service -%>
+sudo reload <%= service %>
+<% end -%>

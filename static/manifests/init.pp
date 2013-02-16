@@ -1,8 +1,10 @@
 class static {
+    require 'stillinbeta-user'
     include 'nginx'
 
     file { "/home/stillinbeta/static":
         ensure => directory,
+        require => User['stillinbeta'],
     }
 
     file { "/etc/nginx/sites-available/static.conf":
