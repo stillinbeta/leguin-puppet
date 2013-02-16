@@ -1,6 +1,6 @@
-These are puppet modules that I use to manage my solitary server.
+These are puppet modules that I use to manage my solitary server, leguin.
 
-Is puppet overkill for a single server? Quite possibly! But
+Is puppet overkill for a single server? Quite possibly! BUT:
 
 a) Moving to a new host with so many wsgi apps is a pain
 
