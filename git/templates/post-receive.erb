@@ -2,8 +2,11 @@
 
 git --work-tree='<%= working_path %>' \
     --git-dir='<%= bare_path %>' \
-    checkout -f HEAD 
+    checkout -f HEAD
 
 <% if service -%>
-sudo reload <%= service %>
+# Reload if running, stop otherwise
+if ! sudo reload <%= service %>; then
+    sudo start <%= service %>
+fi
 <% end -%>
