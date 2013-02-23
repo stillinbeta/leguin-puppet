@@ -1,0 +1,12 @@
+description "gunicorn for <%= name %>"
+
+stop on runlevel[06]
+start on started nginx
+
+console output
+exec <%= directory %>/bin/gunicorn \
+     --bind=unix:/tmp/gunicorn-<%= name %> \
+     --error-log=/tmp/<%= name %>-error.log \
+     --pythonpath=<%= directory %> \
+     django.wsgi:application
+
