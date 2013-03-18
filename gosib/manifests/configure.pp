@@ -2,8 +2,7 @@ class gosib::configure {
 
     git::repo {'gosib':
         service => 'gosib-gunicorn',
-        working_dir => '/home/stillinbeta/sites/gosib/gosib',
-        requires => File["$gosib::site_dir"],
+        working_path => '/home/stillinbeta/sites/gosib/gosib',
     }
 
     python::virtualenv { $gosib::site_dir:

@@ -1,5 +1,5 @@
 define gunicorn::django (
-    $name = $title,
+    $site_name = $title,
     $directory,
 ) {
     include nginx
@@ -13,7 +13,7 @@ define gunicorn::django (
         contents => template("gunicorn/django.wsgi.erb"),
     }
 
-    file { "/etc/init/$name-gunicorn.conf":
+    file { "/etc/init/$site_name-gunicorn.conf":
         ensure => exists,
         contents => template("gunicorn/django_upstart.conf.erb"),
     }

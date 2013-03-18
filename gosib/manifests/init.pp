@@ -11,4 +11,3 @@ class gosib {
     Class['gosib:install'] ->
     Class['gosib']
 }
-
