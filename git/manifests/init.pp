@@ -4,7 +4,7 @@ class git {
     package { "git":
         ensure => installed,
     }
-    
+
     @file { "/home/stillinbeta/git":
         ensure => directory,
         owner => "stillinbeta",

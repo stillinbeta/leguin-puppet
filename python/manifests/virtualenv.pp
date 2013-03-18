@@ -24,8 +24,3 @@ define python::virtualenv (
         }
     }
 }
-            
-            
-        
-    
-

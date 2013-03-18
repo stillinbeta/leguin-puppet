@@ -2,7 +2,7 @@ define gunicorn::django (
     $name = $title,
     $directory,
 ) {
-    include nginx;
+    include nginx
 
     python::pip { "$directory-gunicorn":
         virtualenv => $directory
