@@ -5,8 +5,8 @@ start on started nginx
 
 console output
 exec <%= directory %>/bin/gunicorn \
-     --bind=unix:/tmp/gunicorn-<%= site_name %> \
+     --bind=unix:/tmp/gunicorn-<%= site_name %>.sock \
      --error-log=/tmp/<%= site_name %>-error.log \
      --pythonpath=<%= directory %> \
-     django.wsgi:application
+     django-wsgi:application
 
