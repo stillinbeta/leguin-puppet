@@ -2,20 +2,18 @@ define git::repo (
     $repo_name = $title,
     $branch = 'master',
     $service = false,
-    $bare_path = false,
-    $working_path = false,
+    $bare_path = "/home/stillinbeta/git/${title}.git",
+    $working_path = "/home/stillinbeta/sites/${title}", 
     ) {
     require git
     require stillinbeta-user
 
-    unless $bare_path {
+    if $bare_path =~ /^\/home\/stillinbeta\/git/ {
         realize File["/home/stillinbeta/git"]
+    } 
 
-        $bare_path = "/home/stillinbeta/git/${repo_name}.git"
-    }
-    unless $working_path {
+    if $working_path =~ /^\/home\/stillinbeta\/sites/ {
         realize File["/home/stillinbeta/sites"]
-        $working_path = "/home/stillinbeta/sites/${repo_name}"
     }
 
     # Git init is safe to rerun
@@ -23,6 +21,7 @@ define git::repo (
         command => "${git::git_bin} init --bare $bare_path",
         creates => "$bare_path",
         user => 'stillinbeta',
+	notify => File["$bare_path/hooks/post-receive"],
     }
 
     file { "$bare_path/hooks/post-receive":
