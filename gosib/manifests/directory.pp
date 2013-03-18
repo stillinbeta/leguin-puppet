@@ -7,4 +7,10 @@ class gosib::directory {
         ensure => directory,
         owner => 'stillinbeta',
     }
+
+    file { "${gosib::site_dir}/gosib":
+        ensure => link,
+        target => "$gosib::site_dir/gosib-wd/gosib",
+        owner => 'stillinbeta' 
+    }
 }
