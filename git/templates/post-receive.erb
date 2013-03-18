@@ -2,7 +2,7 @@
 
 git --work-tree='<%= working_path %>' \
     --git-dir='<%= bare_path %>' \
-    checkout -f HEAD
+    checkout -f deploy
 
 <% if service -%>
 # Reload if running, stop otherwise
