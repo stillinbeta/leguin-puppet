@@ -25,7 +25,7 @@ class nginx {
     }
 
     user { "www-data":
-        ensure => exists,
+        ensure => present,
     }
 
 }

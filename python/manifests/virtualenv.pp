@@ -9,7 +9,7 @@ define python::virtualenv (
     $venv_bin = '/usr/bin/virtualenv'
 
     exec { "virtualenv_$title":
-        #creates => ["$venv_path/lib", "$venv_path/include", "$venv_path/bin"],
+        creates => ["$venv_path/lib", "$venv_path/include", "$venv_path/bin"],
         command => "$venv_bin -p $python $venv_path",
     }
 

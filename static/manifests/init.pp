@@ -14,7 +14,7 @@ class static {
 
     file {  "/etc/nginx/sites-enabled/static.conf":
         ensure => link,
-        target =>  "/etc/nginx/sites-available/static.conf",
+        target => "/etc/nginx/sites-available/static.conf",
         notify => Service['nginx'],
     }
 }
