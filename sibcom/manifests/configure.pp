@@ -6,7 +6,10 @@ class sibcom::configure {
     }
 
     python::virtualenv { $sibcom::site_dir:
-        packages => ['django']
+        packages => ['django',
+                     'python-openid',
+                     'django-openid-auth',
+                     'django-openid-provider']
     }
 
     file { "${sibcom::site_dir}/lib/python2.7/site-packages/PIL":
