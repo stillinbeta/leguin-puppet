@@ -1,5 +1,5 @@
 upstream <%= upstream_name %> {
-    server unix:/tmp/gunicorn-<%=upstream_name %>.sock;
+    server unix:<%= socket %>;
 }
 
 server {
