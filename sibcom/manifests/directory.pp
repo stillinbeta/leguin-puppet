@@ -3,8 +3,4 @@ class sibcom::directory {
 
     realize File["/home/stillinbeta/sites"]
 
-    file { $sibcom::site_dir:
-        ensure => directory,
-        owner => 'stillinbeta',
-    }
 }

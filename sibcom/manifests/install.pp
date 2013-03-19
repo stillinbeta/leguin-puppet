@@ -5,4 +5,8 @@ class sibcom::install {
         domain => 'stillinbeta.com',
         static_dir => "${sibcom::site_dir}/sibcom/static",
     }
+
+    package { 'python-imaging':
+        ensure => installed,
+    }
 }
