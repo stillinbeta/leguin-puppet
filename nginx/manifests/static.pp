@@ -11,9 +11,12 @@ define nginx::static (
         realize File["/home/stillinbeta/sites"]
     }
 
-    file { "${directory}":
-        ensure => directory,
-        owner => 'stillinbeta',
+    
+    unless defined(File[$directory]) {
+        file { "${directory}":
+            ensure => directory,
+            owner => 'stillinbeta',
+        }
     }
 
     nginx::config { "$site_name":

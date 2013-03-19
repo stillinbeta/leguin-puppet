@@ -29,9 +29,11 @@ define git::repo (
         mode => "a=rx,ug+w",
         owner => 'stillinbeta',
     }
-
-    file { "$working_path":
-        ensure => directory,
-        owner => "stillinbeta",
+	
+    unless defined(File[$working_path]) {
+        file { "$working_path":
+            ensure => directory,
+            owner => "stillinbeta",
+        }
     }
 }
