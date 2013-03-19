@@ -23,6 +23,6 @@ define gunicorn::django (
     nginx::proxypass { $site_name:
         server_domain => $domain,
         socket => "/tmp/gunicorn-${site_name}.sock",
-        static_dir => static_dir,
+        static_dir => $static_dir,
     }
 }
