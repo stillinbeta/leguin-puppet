@@ -1,5 +1,5 @@
 class nginx {
-    package { 'nginx': 
+    package { 'nginx':
         ensure => installed,
     }
 
@@ -18,7 +18,7 @@ class nginx {
     service { nginx:
         ensure => running,
         provider => upstart,
-        require => [ 
+        require => [
             File["/etc/init/nginx.conf"],
             Package["nginx"],
         ]

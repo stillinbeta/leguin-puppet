@@ -11,6 +11,6 @@ class gosib::directory {
     file { "${gosib::site_dir}/gosib":
         ensure => link,
         target => "$gosib::site_dir/gosib-wd/gosib",
-        owner => 'stillinbeta' 
+        owner => 'stillinbeta'
     }
 }

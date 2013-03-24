@@ -20,7 +20,7 @@ define python::virtualenv (
 
         python::pip { $packages_sub:
             virtualenv => $venv_path,
-	    require => Exec["virtualenv_$title"]
+            require => Exec["virtualenv_$title"],
         }
     }
 }

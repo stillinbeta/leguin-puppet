@@ -1,5 +1,5 @@
-class gunicorn { 
-    @package {'gunicorn': 
+class gunicorn {
+    @package {'gunicorn':
         ensure => 'installed',
     }
 }

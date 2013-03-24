@@ -18,5 +18,3 @@ class static {
         notify => Service['nginx'],
     }
 }
-
-    
