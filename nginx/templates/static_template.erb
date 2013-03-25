@@ -1,0 +1,11 @@
+server {
+    listen <%= port %>;
+    server_name <%= directory %>;
+
+    include error/error.conf;
+
+    location / {
+        root <%= directory %>;
+    }
+
+}

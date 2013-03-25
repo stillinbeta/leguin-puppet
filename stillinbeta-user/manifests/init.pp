@@ -3,4 +3,9 @@ class stillinbeta-user {
         ensure => "present",
         managehome => true,
     }
+
+    @file { "/home/stillinbeta/sites":
+        ensure => directory,
+        owner => "stillinbeta",
+    }
 }

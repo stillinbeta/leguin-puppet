@@ -10,11 +10,5 @@ class git {
         owner => "stillinbeta",
     }
 
-    # This is the checkout repo
-    @file { "/home/stillinbeta/sites":
-        ensure => directory,
-        owner => "stillinbeta",
-    }
-
     $git_bin = "/usr/bin/git"
 }
