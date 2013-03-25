@@ -20,16 +20,9 @@ define gunicorn::django (
         content => template("gunicorn/django_upstart.conf.erb"),
     }
 
-    file { "/etc/nginx/sites-available/$title.conf":
-        ensure => file,
-        content => template("gunicorn/nginx-template.erb"),
-        require => Package['nginx'],
-    }
-
-    file { "/etc/nginx/sites-enabled/$title.conf":
-        ensure => link,
-        target => "/etc/nginx/sites-available/$title.conf",
-        notify => Service['nginx'],
-        require => Package['nginx'],
+    nginx::proxypass { $site_name:
+        server_domain => $domain,
+        socket => "/tmp/gunicorn-${site_name}.sock",
+        static_dir => static_dir,
     }
 }

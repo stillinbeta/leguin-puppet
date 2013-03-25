@@ -1,13 +1,12 @@
-upstream <%= site_name %> {
-    server unix:/tmp/gunicorn-<%= site_name %>.sock;
+upstream <%= upstream_name %> {
+    server unix:/tmp/gunicorn-<%=upstream_name %>.sock;
 }
 
 server {
-    listen 80;
-    server_name <%= domain %>;
+    listen <%= port %>;
+    server_name <%= server_domain %>;
 
     include error/error.conf;
-
 
     <% if static_dir -%>
     location /static {
@@ -20,7 +19,7 @@ server {
         proxy_set_header Host $http_host;
         proxy_redirect off;
 
-        proxy_pass http://<%= site_name %>;
+        proxy_pass http://<%=upstream_name %>;
     }
 }
 
