@@ -12,11 +12,6 @@ class sibcom::configure {
                      'django-openid-provider']
     }
 
-    file { "${sibcom::site_dir}/lib/python2.7/site-packages/PIL":
-        ensure => link,
-        target => "/usr/lib/python2.7/dist-packages/PIL",
-    }
-
     cron { sibcom-update:
        command => "/home/stillinbeta/sites/sibcom/bin/python /home/stillinbeta/sites/sibcom/sibcom/update.py",
        user => "stillinbeta",

@@ -9,4 +9,10 @@ class sibcom::install {
     package { 'python-imaging':
         ensure => installed,
     }
+
+    file { "${sibcom::site_dir}/lib/python2.7/site-packages/PIL":
+        ensure => link,
+        target => "/usr/lib/python2.7/dist-packages/PIL",
+    }
+
 }
