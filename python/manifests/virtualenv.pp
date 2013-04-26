@@ -1,16 +1,24 @@
 define python::virtualenv (
     $venv_path = $title,
     $python = 'python2.7',
+    $system_packages = true,
     $packages = false) {
 
     include python
     realize Package['python-virtualenv']
 
+
+    if $system_packages {
+        $system_pkg_arg = '--system-site-packages'
+    } else {
+        $system_pkg_arg = ''
+    }
+
     $venv_bin = '/usr/bin/virtualenv'
 
     exec { "virtualenv_$title":
         creates => ["$venv_path/lib", "$venv_path/include", "$venv_path/bin"],
-        command => "$venv_bin -p $python $venv_path",
+        command => "$venv_bin $system_pkg_arg -p $python $venv_path",
     }
 
     if $packages {
