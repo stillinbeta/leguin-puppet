@@ -3,6 +3,8 @@ define nginx::static (
     $domain,
     $directory,
     $port = 80,
+    $ipv6 = true,
+    $default_server = false,
     ) {
 
     include stillinbeta-user

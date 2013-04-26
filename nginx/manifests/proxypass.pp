@@ -4,6 +4,8 @@ define nginx::proxypass (
     $socket,
     $static_dir = false,
     $port = 80,
+    $ipv6 = true,
+    $default_server = false,
     ) {
 
 

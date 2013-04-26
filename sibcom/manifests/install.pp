@@ -4,6 +4,7 @@ class sibcom::install {
         directory => $sibcom::site_dir,
         domain => 'stillinbeta.com  www.stillinbeta.com',
         static_dir => "${sibcom::site_dir}/sibcom/static",
+        default_server => true,
     }
 
     package { 'python-imaging':

@@ -3,6 +3,7 @@ define gunicorn::django (
     $domain,
     $directory,
     $static_dir = false,
+    $default_server = false,
 ) {
     include nginx
 
@@ -24,5 +25,6 @@ define gunicorn::django (
         server_domain => $domain,
         socket => "/tmp/gunicorn-${site_name}.sock",
         static_dir => $static_dir,
+        default_server => $default_server,
     }
 }
