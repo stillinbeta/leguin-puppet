@@ -4,6 +4,7 @@ author  "Ellie Frost <web@stillinbeta.com>"
 start on runlevel [234]
 stop on runlevel [0156]
 
-chdir <%= site_dir %>
-exec bin/twistd --syslog --uid=stillinbeta -ny statusbot.tac
+setuid stillinbeta
+chdir <%= scope['statusbot::site_dir'] %>
+exec bin/python /usr/bin/twistd --syslog -ny statusbot.tac
 respawn

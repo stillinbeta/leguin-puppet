@@ -8,17 +8,23 @@ class statusbot {
     }
 
     python::virtualenv { $site_dir:
-        packages => ['Twisted==13.0.0'
-                     'httplib2==0.8',
+        packages => ['httplib2==0.8',
                      'oauth2==1.5.170',
-                     'pyOpenSSL==0.13',
-                     'wokkel==0.7.1',
-                     'wsgiref==0.1.2',
-                     'zope.interface==3.6']
+                     'zope.interface==3.6'],
+        system_packages => true,
+    }
+
+    package { ['python-twisted-core', 
+               'python-twisted-runner',
+               'python-twisted-words',
+               'python-twisted-web',
+               'python-openssl',
+               'python-wokkel']:
+        ensure => 'installed',
     }
 
     file { "/etc/init/statusbot.conf":
-        ensure => exists,
-        contents => template('statusbot/upstart.conf.erb')
+        ensure => file,
+        content => template('statusbot/upstart.conf.erb')
     }
 }
