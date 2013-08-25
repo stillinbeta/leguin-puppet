@@ -15,6 +15,7 @@ class nginx {
         require => Package['nginx'],
     }
 
+
     service { nginx:
         ensure => running,
         provider => upstart,
@@ -26,6 +27,13 @@ class nginx {
 
     user { "www-data":
         ensure => present,
+    }
+
+    file { "/etc/nginx/ssl":
+        ensure => directory,
+        owner => "www-data",
+        group => "www-data",
+        mode => "u=rw",
     }
 
 }

@@ -4,6 +4,9 @@ define gunicorn::django (
     $directory,
     $static_dir = false,
     $default_server = false,
+    $ssl_port = 443,
+    $ssl_cert = false,
+    $ssl_key = false,
 ) {
     include nginx
 
@@ -25,6 +28,9 @@ define gunicorn::django (
         server_domain => $domain,
         socket => "/tmp/gunicorn-${site_name}.sock",
         static_dir => $static_dir,
+        ssl_port => $ssl_port,
+        ssl_cert => $ssl_cert,
+        ssl_key => $ssl_key,
         default_server => $default_server,
     }
 }

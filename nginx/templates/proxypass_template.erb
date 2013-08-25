@@ -7,7 +7,12 @@ server {
     <% if ipv6 -%>
         listen [::]:<%= port%> <% if default_server%> default_server ipv6only=on<% end%>;
     <% end -%>
-        
+    <% if ssl_cert and ssl_key -%>
+       listen <%= ssl_port %> ssl;
+       ssl on;
+       ssl_certificate <%= ssl_cert %>
+       ssl_key <%= ssl_key %>
+    <% end -%>
     server_name <%= server_domain %>;
 
     include error/error.conf;
@@ -26,4 +31,3 @@ server {
         proxy_pass http://<%=upstream_name %>;
     }
 }
-
