@@ -9,7 +9,6 @@ server {
     <%- end -%>
     <%- if ssl_cert and ssl_key -%>
        listen <%= ssl_port %> ssl;
-       ssl on;
        ssl_certificate <%= ssl_cert %>;
        ssl_certificate_key <%= ssl_key %>;
     <%- end -%>
