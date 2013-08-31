@@ -9,7 +9,8 @@ class sibcom::configure {
         packages => ['django',
                      'python-openid',
                      'django-openid-auth',
-                     'django-openid-provider']
+                     'django-openid-provider',
+                     'twitter']
     }
 
     cron { sibcom-update:
