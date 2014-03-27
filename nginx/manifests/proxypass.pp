@@ -8,7 +8,8 @@ define nginx::proxypass (
     $default_server = false,
     $ssl_cert = false,
     $ssl_key = false,
-    $ssl_port = 443
+    $ssl_port = 443,
+    $extra = '',
     ) {
 
 
