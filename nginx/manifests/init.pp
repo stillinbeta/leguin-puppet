@@ -36,4 +36,11 @@ class nginx {
         mode => "u=rw",
     }
 
+    file { "/etc/nginx/conf.d/ssl.conf":
+        ensure  => file,
+        source  => "puppet:///modules/nginx/ssl.conf",
+        require => Package['nginx'],
+        notify  => Service['nginx'],
+    }
+
 }
