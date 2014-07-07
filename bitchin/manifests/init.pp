@@ -11,7 +11,7 @@ class bitchin {
     }
 
     file { '/home/stillinbeta/sites/bitchin/index.html':
-        ensure => exists,
-        contents => "puppet:///modules/bitchin/index.html",
+        ensure => file,
+        source => "puppet:///modules/bitchin/index.html",
     }
 }
