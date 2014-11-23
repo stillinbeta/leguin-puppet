@@ -7,8 +7,7 @@ class sibcom::install {
         domain         => 'stillinbeta.com  www.stillinbeta.com',
         static_dir     => "${sibcom::site_dir}/sibcom/static",
         default_server => true,
-        ssl_cert       => "/etc/nginx/ssl/stillinbeta.com.crt",
-        ssl_key        => "/etc/nginx/ssl/stillinbeta.com.key",
+        ssl            => true,
         extra          => template("sibcom/well_known.erb"),
     }
 

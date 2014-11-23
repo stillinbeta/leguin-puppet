@@ -4,6 +4,8 @@ define nginx::static (
     $directory,
     $port = 80,
     $ipv6 = true,
+    $ssl_port = 443,
+    $ssl = false,
     $default_server = false,
     ) {
 

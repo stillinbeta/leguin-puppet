@@ -1,8 +1,9 @@
 class bitchin {
 
     nginx::static { 'bitchin':
-        domain => 'bitchin.stillinbeta.com',
+        domain    => 'bitchin.stillinbeta.com',
         directory => '/home/stillinbeta/sites/bitchin',
+        ssl       => true,
     }
 
     file { '/home/stillinbeta/sites/bitchin':

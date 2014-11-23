@@ -6,7 +6,8 @@ class rockt {
     }
 
     nginx::static { 'rockt':
-        domain => 'rockt.stillinbeta.com',
+        domain    => 'rockt.stillinbeta.com',
         directory => "$site_dir",
+        ssl       => true,
     }
 }

@@ -19,7 +19,8 @@ class friendheat {
 
     nginx::proxypass { "friendheat":
         server_domain => 'friendheat.stillinbeta.com',
-        socket => '/tmp/friendheat-tornado.socket',
-        static_dir => "$site_path/static",
+        socket        => '/tmp/friendheat-tornado.socket',
+        static_dir    => "$site_path/static",
+        ssl           => true,
     }
 }

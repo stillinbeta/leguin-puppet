@@ -6,8 +6,7 @@ define nginx::proxypass (
     $port = 80,
     $ipv6 = true,
     $default_server = false,
-    $ssl_cert = false,
-    $ssl_key = false,
+    $ssl = false,
     $ssl_port = 443,
     $extra = '',
     ) {
